@@ -10,4 +10,5 @@ of. Press right mouse button and in the context menu that pops up, click "Show
 selected link(s) in links overview". The overview will now be opened in a new tab.
 
 Demonstration:
+
 ![Demonstration](demonstration.gif "Demonstration")
