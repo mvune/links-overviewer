@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Links Overviewer",
+  "version": "0.1.0",
+  "description": "Generates a slick overview of user selected links with screenshots.",
+  "background": {
+    "scripts": ["background.js", "data/imageRequest.js"]
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "activeTab"
+  ]
+}
