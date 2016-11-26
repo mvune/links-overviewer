@@ -52,7 +52,7 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
 
 		chrome.runtime.sendMessage({
 			text: 'show',
-			selection: selection,
+			selection: '' + selection,
 			pageHost: pageHost,
 			imageRequest: imageRequest
 		});

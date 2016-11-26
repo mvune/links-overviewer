@@ -62,6 +62,30 @@ function createBrick(uri, imageRequest) {
 	brick.appendChild(removeButton);
 	brick.appendChild(imageAnchor);
 
+	const onRequestSuccess = function(response) {
+		image.src = 'data:image/jpg;base64,' + response.content.data;
+		cacheItem(uri, image.src);
+	}
+
+	const onRequestFailure = function(message) {
+		image.src = 'layout/no-image.png';
+
+		let errorContainer = document.createElement('div');
+		errorContainer.className = 'error-container';
+
+		let errorName = document.createElement('span');
+		errorName.className = 'error-name';
+		errorName.innerHTML = message[0];
+
+		let errorMessage = document.createElement('span');
+		errorMessage.className = 'error-message';
+		errorMessage.innerHTML = message[1];
+
+		errorContainer.appendChild(errorName);
+		errorContainer.appendChild(errorMessage);
+		brick.appendChild(errorContainer);
+	}
+
 	if(localStorage && localStorage.getItem(uri)) {
 
 		image.src = localStorage.getItem(uri);
@@ -82,30 +106,6 @@ function createBrick(uri, imageRequest) {
 			imgRequest.scripts || (imgRequest.scripts = {});
 			imgRequest.scripts.domReady || (imgRequest.scripts.domReady = []);
 			imgRequest.scripts.domReady.push('if(typeof CookiesOK == "function") {CookiesOK();}');
-		}
-
-		const onRequestSuccess = function(response) {
-			image.src = 'data:image/jpg;base64,' + response.content.data;
-			cacheItem(uri, image.src);
-		}
-
-		const onRequestFailure = function(message) {
-			image.src = 'data/layout/no-image.png';
-
-			let errorContainer = document.createElement('div');
-			errorContainer.className = 'error-container';
-
-			let errorName = document.createElement('span');
-			errorName.className = 'error-name';
-			errorName.innerHTML = message[0];
-
-			let errorMessage = document.createElement('span');
-			errorMessage.className = 'error-message';
-			errorMessage.innerHTML = message[1];
-
-			errorContainer.appendChild(errorName);
-			errorContainer.appendChild(errorMessage);
-			brick.appendChild(errorContainer);
 		}
 
 		const imageParamString = JSON.stringify(imgRequest);
