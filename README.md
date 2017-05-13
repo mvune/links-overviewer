@@ -15,8 +15,7 @@ Demonstration:
 
 ## Where/how to download/install?
 
-Currently this extension is not available for download from any browser store (just 
-yet). I'm planning though to make it available after some more changes.
+Currently this extension is not available for download from any browser store.
 
-You can however clone or download it from here, get it zipped and try to install 
+You could however clone or download it from here, get it zipped and try to install 
 it manually. Mind though that the extension has to be signed first.
